@@ -1,0 +1,9 @@
+[submodule "docker-registry-ui"]
+	path = docker-registry-ui
+	url = https://github.com/Joxit/docker-registry-ui.git
+[submodule "kube-plex"]
+	path = kube-plex
+	url = https://github.com/munnerz/kube-plex.git
+[submodule "COVID-19"]
+	path = COVID-19
+	url = https://github.com/smartcuc/COVID-19.git

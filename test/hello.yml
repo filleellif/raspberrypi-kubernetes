@@ -1,0 +1,22 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: hello-app
+  labels:
+    app: hello
+spec:
+  containers:
+    - name: hello-app
+      image: krape1987/raspberrypi
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: hello-service
+spec:
+  selector:
+    app: hello
+  ports:
+    - port: 80 # Default port for image

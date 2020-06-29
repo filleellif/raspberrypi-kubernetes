@@ -1,0 +1,22 @@
+ingress:
+  enabled: true
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+  hosts:
+    - host: drone.krpetersen.dk
+      paths:
+        - "/"
+  tls:
+  - hosts:
+    - drone.krpetersen.dk
+    secretName: drone-tls-cert
+
+env:
+  DRONE_SERVER_HOST: drone.krpetersen.dk
+  DRONE_SERVER_PROTO: https
+  DRONE_DATABASE_DRIVER: postgres
+  DRONE_DATABASE_DATASOURCE: postgres://postgres:V3LzCmVY6D@postgresql.postgres.svc.cluster.local:5432/postgres?sslmode=disable
+  DRONE_RPC_SECRET: 1a09cbb027ff39e655e5f03076ed0464
+  DRONE_PROVIDER: github
+  DRONE_GITHUB_CLIENT_ID: 73e18860a3f3380ac44f
+  DRONE_GITHUB_CLIENT_SECRET: b0aa6edc7f2e8f1ba514baffad7bbb936da5d8f9
