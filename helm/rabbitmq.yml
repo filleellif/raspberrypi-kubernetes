@@ -1,0 +1,11 @@
+image:
+  repository: rabbitmq
+  tag: 3.9.13
+
+# ingress:
+#   enabled: true
+#   hostname: rabbitmq.kristoffer.codes
+#   annotations:
+#     cert-manager.io/cluster-issuer: letsencrypt
+#     kubernetes.io/ingress.class: nginx
+#   tls: true

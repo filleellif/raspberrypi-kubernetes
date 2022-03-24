@@ -1,4 +1,0 @@
-image:
-  repository: postgres
-  tag: latest
-  pullPolicy: Always

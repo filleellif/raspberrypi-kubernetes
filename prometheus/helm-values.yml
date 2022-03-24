@@ -1,4 +1,0 @@
-kube-state-metrics:
-  image:
-    repository: carlosedp/kube-state-metrics
-    tag: v1.9.6
