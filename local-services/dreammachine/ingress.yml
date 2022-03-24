@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: nginx
+  labels:
+    name: dreammachine-ingress
+  name: dreammachine-ingress
+spec:
+  rules:
+    - host: udm.kristoffer.codes
+      http:
+        paths:
+          - backend:
+              service:
+                name: dreammachine
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
+  tls:
+    - hosts:
+        - udm.kristoffer.codes
+      secretName: dreammachine-tls-cert

@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: nginx
+  labels:
+    name: nas-ingress
+  name: nas-ingress
+spec:
+  rules:
+    - host: nas.kristoffer.codes
+      http:
+        paths:
+          - backend:
+              service:
+                name: nas
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
+  tls:
+    - hosts:
+        - nas.kristoffer.codes
+      secretName: nas-tls-cert
