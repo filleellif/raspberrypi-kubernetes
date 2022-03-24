@@ -4,7 +4,7 @@ metadata:
   name: dreammachine
 subsets:
   - addresses:
-      - ip: 192.168.1.11
+      - ip: 192.168.1.1
     ports:
-      - port: 5000
+      - port: 80
         protocol: TCP
