@@ -1,9 +1,14 @@
 # helm repo add grafana https://grafana.github.io/helm-charts
 # helm repo update
-# helm install grafana grafana/grafana -f grafana.yml --namespace monitoring
+# helm upgrade --install grafana grafana/grafana -f grafana.yml --namespace monitoring
 
 image:
   tag: latest
+
+service:
+  type: NodePort
+  nodePort: 31235
+
 ingress:
   enabled: true
   annotations:
