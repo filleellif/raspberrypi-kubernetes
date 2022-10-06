@@ -5,21 +5,21 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt
     kubernetes.io/ingress.class: nginx
   labels:
-    name: dreammachine-ingress
-  name: dreammachine-ingress
+    name: homeassistant-ingress
+  name: homeassistant-ingress
 spec:
   rules:
-    - host: udm.kristoffer.codes
+    - host: hass.kristoffer.codes
       http:
         paths:
           - backend:
               service:
-                name: dreammachine
+                name: homeassistant
                 port:
                   number: 80
             path: /
             pathType: Prefix
   tls:
     - hosts:
-        - udm.kristoffer.codes
-      secretName: dreammachine-tls-cert
+        - hass.kristoffer.codes
+      secretName: homeassistant-tls-cert

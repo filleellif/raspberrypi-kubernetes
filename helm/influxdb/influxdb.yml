@@ -1,0 +1,22 @@
+# kubectl apply -f secret.yml
+# helm repo add influxdata https://helm.influxdata.com/
+# helm repo update
+# helm upgrade --install influxdb influxdata/influxdb -f influxdb.yml --namespace monitoring
+
+image:
+  repository: influxdb
+  tag: 1.8.10
+
+persistence:
+  enabled: true
+  storageClass: nfs-client
+
+setDefaultUser:
+  enabled: true
+  user:
+    existingSecret: influxdb-secret
+
+service:
+  type: NodePort
+  nodePorts:
+    http: 31234
