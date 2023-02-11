@@ -58,9 +58,9 @@ config:
     - ping:
         urls:
           - "google.com"
-    - internet_speed:
-        enable_file_download: false
-        interval: "30m"
+    # - internet_speed:
+    #     enable_file_download: false
+    #     interval: "30m"
     - statsd:
         service_address: ":8125"
         percentiles:

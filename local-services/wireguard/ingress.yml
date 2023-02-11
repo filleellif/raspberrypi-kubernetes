@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: nginx
+  labels:
+    name: wireguard-ingress
+  name: wireguard-ingress
+spec:
+  rules:
+    - host: wireguard.kristoffer.codes
+      http:
+        paths:
+          - backend:
+              service:
+                name: wireguard
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
+  tls:
+    - hosts:
+        - wireguard.kristoffer.codes
+      secretName: wireguard-tls-cert

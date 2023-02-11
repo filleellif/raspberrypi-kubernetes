@@ -1,7 +1,14 @@
+# helm repo add bitnami https://charts.bitnami.com/bitnami
+# helm repo update
+# helm upgrade --install rabbitmq bitnami/rabbitmq -f rabbitmq.yml --namespace messaging
+
 image:
   repository: rabbitmq
-  tag: 3.9.13
+  tag: 3
 
+persistence:
+  enabled: true
+  storageClassName: nfs-client
 # ingress:
 #   enabled: true
 #   hostname: rabbitmq.kristoffer.codes
