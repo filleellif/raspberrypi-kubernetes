@@ -1,25 +1,24 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: grocy
-  namespace: smarthome
-  labels:
-    name: grocy
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
-    kubernetes.io/ingress.class: nginx
+  labels:
+    name: grocy
+  name: grocy
 spec:
+  ingressClassName: public
   rules:
   - host: grocy.kristoffer.codes
     http:
       paths:
-      - pathType: Prefix
-        path: /
-        backend:
+      - backend:
           service:
             name: grocy
             port:
               number: 80
+        path: /
+        pathType: Prefix
   tls:
   - hosts:
     - grocy.kristoffer.codes
