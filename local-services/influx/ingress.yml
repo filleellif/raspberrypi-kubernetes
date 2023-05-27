@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+  labels:
+    name: influx-ingress
+  name: influx-ingress
+spec:
+  ingressClassName: public
+  rules:
+  - host: influx.kristoffer.codes
+    http:
+      paths:
+      - backend:
+          service:
+            name: influx
+            port:
+              number: 8086
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - influx.kristoffer.codes
+    secretName: influx-tls-cert
