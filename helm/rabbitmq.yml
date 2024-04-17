@@ -1,0 +1,13 @@
+# helm upgrade --install rabbitmq oci://registry-1.docker.io/bitnamicharts/rabbitmq -f rabbitmq.yml
+
+replicaCount: 3
+
+ingress:
+  enabled: true
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+  hostname: rabbitmq.kristoffer.codes
+  tls:
+    - hosts:
+      - rabbitmq.kristoffer.codes
+      secretName: rabbitmq-tls

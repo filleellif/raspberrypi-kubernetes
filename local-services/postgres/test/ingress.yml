@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+  labels:
+    name: postgres-test-ingress
+  name: postgres-test-ingress
+spec:
+  ingressClassName: public
+  rules:
+  - host: postgres-test.kristoffer.codes
+    http:
+      paths:
+      - backend:
+          service:
+            name: postgres-test
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - postgres-test.kristoffer.codes
+    secretName: postgres-test-tls-cert

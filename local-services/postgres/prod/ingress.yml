@@ -16,7 +16,7 @@ spec:
           service:
             name: postgres
             port:
-              number: 5432
+              number: 80
         path: /
         pathType: Prefix
   tls:
