@@ -4,22 +4,22 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
   labels:
-    name: nas-ingress
-  name: nas-ingress
+    name: grocy
+  name: grocy
 spec:
   ingressClassName: public
   rules:
-  - host: nas.kristoffer.codes
+  - host: grocy.kristoffer.codes
     http:
       paths:
       - backend:
           service:
-            name: nas
+            name: grocy
             port:
               number: 80
         path: /
         pathType: Prefix
   tls:
   - hosts:
-    - nas.kristoffer.codes
-    secretName: nas-tls-cert
+    - grocy.kristoffer.codes
+    secretName: grocy-tls

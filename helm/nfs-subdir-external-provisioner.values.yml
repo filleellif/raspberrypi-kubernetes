@@ -1,3 +1,0 @@
-nfs:
-  path: /volume1/kubernetes
-  server: 192.168.1.11

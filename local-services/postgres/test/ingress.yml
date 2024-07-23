@@ -4,22 +4,22 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
   labels:
-    name: nas-ingress
-  name: nas-ingress
+    name: postgres-test-ingress
+  name: postgres-test-ingress
 spec:
   ingressClassName: public
   rules:
-  - host: nas.kristoffer.codes
+  - host: postgres-test.kristoffer.codes
     http:
       paths:
       - backend:
           service:
-            name: nas
+            name: postgres-test
             port:
               number: 80
         path: /
         pathType: Prefix
   tls:
   - hosts:
-    - nas.kristoffer.codes
-    secretName: nas-tls-cert
+    - postgres-test.kristoffer.codes
+    secretName: postgres-test-tls-cert

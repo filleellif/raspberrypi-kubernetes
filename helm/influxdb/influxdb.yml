@@ -9,7 +9,7 @@ image:
 
 persistence:
   enabled: true
-  storageClass: nfs-client
+  # storageClass: nfs-client
 
 setDefaultUser:
   enabled: true
